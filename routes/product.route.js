@@ -5,6 +5,7 @@ const productController = require('../controllers/product.controller')
 
 router.route('/').post( productController.SaveProduct)
 .get(productController.getAllProduct)
+router.route('/:id').patch(productController.getUpdateProductById)
  
 
 module.exports = router;

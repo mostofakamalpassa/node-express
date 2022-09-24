@@ -19,3 +19,14 @@ module.exports.saveProduct = async(data)=>{
     return result;
  
 }
+
+
+// update product 
+
+module.exports.getUpdateProduct = async(id, data) =>{
+    console.log("serid"+ id, data);
+  const result = await  Product.updateOne({_id: id}, {$set:data});
+
+  return result;
+    
+}
