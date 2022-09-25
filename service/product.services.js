@@ -40,3 +40,17 @@ module.exports.bulkUpdateProductService = async(data)=>{
 
     return update;
 }
+
+
+
+// delete product by product Id 
+
+module.exports.deleteProductByIdService = async(id)=>{
+    try{
+
+        const result = await Product.deleteOne({_id: id});
+
+    }catch(error){
+        console.log(error)
+    }
+}

@@ -67,3 +67,17 @@ module.exports.bulkProductUpdateController = async(req, res, next)=>{
 
 
 }
+
+// delete product 
+
+module.exports.deleteProductByIdController = async(req, res, next)=>{
+    
+    try{
+        const {id} = req.params;
+        const result = await productService.deleteProductByIdService(id);
+        
+        res.status(200).json({"status":"success", "data":"delete has been successful"})
+    }catch(error){
+        next(error);
+    }
+}
