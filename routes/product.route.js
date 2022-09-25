@@ -5,6 +5,7 @@ const productController = require('../controllers/product.controller')
 
 router.route('/').post( productController.SaveProduct)
 .get(productController.getAllProduct)
+router.route("/bulk-update").patch(productController.bulkProductUpdateController);
 router.route('/:id').patch(productController.getUpdateProductById)
  
 

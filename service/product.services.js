@@ -30,3 +30,13 @@ module.exports.getUpdateProduct = async(id, data) =>{
   return result;
     
 }
+
+
+// many updates 
+
+module.exports.bulkUpdateProductService = async(data)=>{
+
+    const update = await Product.updateMany({_id:data.ids}, {$set:data.data},{runValidators:true});
+
+    return update;
+}

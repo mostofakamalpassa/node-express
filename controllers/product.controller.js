@@ -8,10 +8,11 @@ module.exports.SaveProduct = async(req, res, next)=>{
         
     const result = await productService.saveProduct(req.body);
 
-      console.log(result);
-      res.send("it is working ");
+      console.log();
+      res.status(200).json({message:"success", data: result});
     }catch(error){
      console.log(error);
+     res.status(400).json({message:"faild",data: error})
     }
  }
 
@@ -49,5 +50,20 @@ module.exports.getUpdateProductById = async (req, res, next)=>{
             data:"update data can not find"
         })
     }
+
+}
+
+
+
+module.exports.bulkProductUpdateController = async(req, res, next)=>{
+
+    try{
+        console.log(req.body);
+        const result = await productService.bulkUpdateProductService(req.body);
+        res.status(200).json({"message":"success","data":result})
+    }catch(error){
+        next(error)
+    }
+
 
 }
